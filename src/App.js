@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { fabric } from 'fabric';
 
-function App() {
+const PFPMaker = () => {
+  useEffect(() => {
+    const canvas = new fabric.Canvas('pFPcanvas', {
+      width: 500,
+      height: 500,
+      backgroundColor: '#ddd'
+    });
+
+    // Example to add text
+    const text = new fabric.Text('Hello, world!', {
+      left: 100,
+      top: 100,
+      fill: '#000',
+      fontSize: 30,
+    });
+    canvas.add(text);
+
+    // Example to handle image upload
+    document.getElementById('imageUpload').addEventListener('change', (e) => {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        fabric.Image.fromURL(event.target.result, (img) => {
+          img.scaleToWidth(300);
+          canvas.centerObject(img);
+          canvas.add(img);
+          canvas.renderAll();
+        });
+      };
+      reader.readAsDataURL(e.target.files[0]);
+    });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="file" id="imageUpload" />
+      <canvas id="pFPcanvas"></canvas>
     </div>
   );
-}
+};
 
-export default App;
+export default PFPMaker;
