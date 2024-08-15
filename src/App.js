@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { useSpring, animated } from '@react-spring/web';
-import './App.css';  // Import the CSS file
+import './App.css';
 
 const PFPMaker = () => {
   const [canvas, setCanvas] = useState(null);
@@ -33,12 +33,11 @@ const PFPMaker = () => {
       ? '0 0 12px rgba(255, 255, 255, 0.8)'
       : '0 0 8px rgba(255, 255, 255, 0.5)',
     borderRadius: '10px', // Add border radius
-    backgroundColor:  '#0d324b' ,// Add background color
+    backgroundColor: '#0d324b', // Add background color
     transition: 'background-color 0.3s ease', // Add transition for background color
     config: { tension: 300, friction: 15 },
   });
-  
-  
+
   useEffect(() => {
     const canvasInstance = new fabric.Canvas('pFPcanvas', {
       width: 400,
@@ -63,10 +62,13 @@ const PFPMaker = () => {
 
     const pattern = new fabric.Pattern({
       source: marbleCanvas,
-      repeat: 'repeat'
+      repeat: 'repeat',
     });
 
-    canvasInstance.setBackgroundColor(pattern, canvasInstance.renderAll.bind(canvasInstance));
+    canvasInstance.setBackgroundColor(
+      pattern,
+      canvasInstance.renderAll.bind(canvasInstance)
+    );
 
     // Handle image upload
     const handleImageUpload = (e) => {
@@ -91,7 +93,6 @@ const PFPMaker = () => {
     return () => {
       imageUploadInput.removeEventListener('change', handleImageUpload);
     };
-
   }, []);
 
   // Function to download the canvas as an image
@@ -146,44 +147,71 @@ const PFPMaker = () => {
 
   return (
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
-    <img src='/aq.PNG' alt='Logo' className="pfpmaker-logo" />
-    <animated.h1 style={{ ...headerStyle }} className="pfpmaker-header">Aequor Finance PFP Maker</animated.h1>
-    
-    {/* First Card Container */}
-    <div className="card-container">
-      <animated.div style={fileInputStyle}>
-        <input type="file" id="imageUpload" className="file-input" />
-      </animated.div>
-      <button className="download-button" onClick={downloadCanvas}>Download PFP</button>
-    </div>
-
-    {/* Second Card Container */}
-    <div className="card-container">
-      <div className="left-section">
-        <h2 className="assets-header">My Assets</h2>
-        <div className="tiles-container">
-          <div className="tile" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-            <img src="/gear.PNG" alt="Assets" className="assets-image" onClick={handleAssetClick} />
+      <canvas id="pFPcanvas" className="canvas">rr</canvas> {/* Canvas on the left */}
+  
+      {/* Controls on the right */}
+      <div className="controls-container">
+        <img src='/aq.PNG' alt='Logo' className="pfpmaker-logo" />
+        <animated.h1 style={{ ...headerStyle }} className="pfpmaker-header">
+          Aequor Finance PFP Maker
+        </animated.h1>
+  
+        {/* First Card Container */}
+        <div className="card-container">
+          <animated.div style={fileInputStyle}>
+            <input type="file" id="imageUpload" className="file-input" />
+          </animated.div>
+          <button className="download-button" onClick={downloadCanvas}>
+            Download PFP
+          </button>
+        </div>
+  
+        {/* Second Card Container */}
+        <div className="card-container">
+          <div className="left-section">
+            <h2 className="assets-header">My Assets</h2>
+            <div className="tiles-container">
+              <div
+                className="tile"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <img
+                  src="/gear.PNG"
+                  alt="Assets"
+                  className="assets-image"
+                  style={assetImageStyle}
+                  onClick={handleAssetClick}
+                />
+              </div>
+              {/* Add more tiles here if needed */}
+            </div>
           </div>
-          {/* Add more tiles here if needed */}
+  
+          <div className="right-section">
+            <h2>Controls</h2>
+            <div className="arrow-buttons">
+              <button className="arrow-button" onClick={() => moveSelectedObject('up')}>
+                Up
+              </button>
+              <div className="horizontal-arrows">
+                <button className="arrow-button" onClick={() => moveSelectedObject('left')}>
+                  Left
+                </button>
+                <button className="arrow-button" onClick={() => moveSelectedObject('right')}>
+                  Right
+                </button>
+              </div>
+              <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
+                Down
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="right-section">
-        <h2 className="position-header">Navigations</h2>
-        <div className="arrow-buttons">
-          <button className="arrow-button" onClick={() => moveSelectedObject('up')}>↑</button>
-          <div className="horizontal-arrows">
-            <button className="arrow-button" onClick={() => moveSelectedObject('left')}>←</button>
-            <button className="arrow-button" onClick={() => moveSelectedObject('right')}>→</button>
-          </div>
-          <button className="arrow-button" onClick={() => moveSelectedObject('down')}>↓</button>
-        </div>
-      </div>
-    </div>
-
-    <canvas id="pFPcanvas" className="canvas"></canvas>
-  </animated.div>
+    </animated.div>
   );
+  
 };
 
 export default PFPMaker;
