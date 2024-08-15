@@ -1,38 +1,230 @@
-.App {
+/* Import Google Font - Outfit */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Adjusted for background image */
+  background-size: cover;
+  background-position: center;
+
+}
+
+/* Styles for PFPMaker */
+.pfpmaker-container {
+  background-image: url('/public/pfp1.PNG');
+  background-size: cover;
+  background-position: center;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  max-width: 90%;
+  margin: 0 auto;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 600px) {
+  .pfpmaker-container {
+    background-size: cover;
+    background-position: center;
+    padding: 5px;
+    border-radius: 8px;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+}
+
+
+.pfpmaker-logo {
+  height: 60px;
+  width: 60px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+}
+
+.pfpmaker-header {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card-container {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  width: 90%;
+  margin-bottom: 15px;
+
+}
+
+.file-input {
+  display: block;
+  margin: 10px auto;
+  padding: 6px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #222;
+  color: #fff;
+  width: 80%;
+  font-size: 0.9rem;
+}
+
+.text-input {
+  padding: 6px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #222;
+  color: #fff;
+  flex: 1;
+  width: 45%;
+  font-size: 0.9rem;
+  margin: 5px auto;
+}
+
+.download-button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #444;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.assets-image {
+  width: 70px;
+  height: 70px;
+  border: 3px solid #fff;
+  border-radius: 15px;
+  margin-bottom: 1px;
+}
+
+.canvas {
+  border: 5px solid #ffffff; /* Add a border with your desired thickness and color */
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Optional: Adds rounded corners */
+  border-style: dotted; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .pfpmaker-container {
+    padding: 5px;
+  }
+
+  .pfpmaker-logo {
+    height: 50px;
+    width: 50px;
+  }
+
+  .pfpmaker-header {
+    font-size: 1rem;
+  }
+
+  .card-container {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .file-input,
+  .text-input {
+    width: 100%;
+  }
+
+  .assets-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .download-button {
+    width: 100%;
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  border: 5px solid #ffffff; 
+}
+
+.left-section, .right-section {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  
+  
+}
+
+.assets-header, .position-header {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: aquamarine;
+
+}
+
+.arrow-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.horizontal-arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin: 10px 0;
+}
+
+.arrow-button {
+  padding: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: #0d324b;
   color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.arrow-button:hover {
+  background-color: #555;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tiles-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between tiles */
+  justify-content: center;
+}
+
+.tile {
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border: 2px solid #fff; /* Border color for the tiles */
+  border-radius: 10px;
+  overflow: hidden; /* Ensures image fits within tile */
+  background-color: #0d324b; /* Background color of tile */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
