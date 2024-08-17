@@ -143,7 +143,7 @@ const PFPMaker = () => {
   return (
     
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
-      <div style={{ width:'100%', backgroundColor: 'black' , height: '100%', marginTop: '150px', marginBottom: '150px' }}>
+      <div style={{ width:'100%', backgroundColor: 'black' , height: '100%', marginTop: '150px', marginBottom: '150px' , marginLeft: '30px' , marginRight: '30px'}}>
       <div className="canvas-card">
         <canvas id="pFPcanvas" className="canvas"></canvas>
         <div className="canvas-controls">
