@@ -2,15 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { fabric } from 'fabric';
 import { useSpring, animated } from '@react-spring/web';
 import './App.css';
-
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineArrowLeft, MdOutlineArrowRight } from 'react-icons/md';
-
-
 
 const PFPMaker = () => {
   const [canvas, setCanvas] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState(null);
 
-  // React Spring animations for glowing effects
+  // React Spring animations
   const fileInputStyle = useSpring({
     to: { opacity: 1, transform: 'scale(1)', textShadow: '0 0 8px rgba(255,255,255,0.8)' },
     from: { opacity: 0, transform: 'scale(0.9)', textShadow: '0 0 0 rgba(255,255,255,0)' },
@@ -87,6 +85,7 @@ const PFPMaker = () => {
           canvasInstance.centerObject(img);
           canvasInstance.add(img);
           canvasInstance.setActiveObject(img);
+          setUploadedImage(img); // Store reference to the uploaded image
           canvasInstance.renderAll();
         });
       };
@@ -100,6 +99,20 @@ const PFPMaker = () => {
       imageUploadInput.removeEventListener('change', handleImageUpload);
     };
   }, []);
+
+  // Update image size on canvas
+  useEffect(() => {
+    if (uploadedImage) {
+      const scaleFactor = profilePictureValue / 50; // Normalize value (50 is the default scale)
+      uploadedImage.scale(scaleFactor);
+      canvas?.renderAll();
+    }
+  }, [profilePictureValue]);
+
+  // Handle Laser Eyes scaling
+  useEffect(() => {
+    // Implement scaling for laser eyes if applicable
+  }, [laserEyesValue]);
 
   const downloadCanvas = () => {
     if (canvas) {
@@ -211,50 +224,19 @@ const PFPMaker = () => {
                 </div>
               </div>
   
-              {/* Controls Section */}
-              <div className="controls-container">
-                <h2>Controls</h2>
-                <div>
-                  <div className="arrow-buttons">
-                    <button className="arrow-button up" onClick={() => moveSelectedObject('up')}>
-                      <MdOutlineArrowDropUp />
-                    </button>
-                    <div className="horizontal-arrows">
-                      <button className="arrow-button left" onClick={() => moveSelectedObject('left')}>
-                        <MdOutlineArrowLeft />
-                      </button>
-                      <button className="arrow-button right" onClick={() => moveSelectedObject('right')}>
-                        <MdOutlineArrowRight />
-                      </button>
-                    </div>
-                    <button className="arrow-button down" onClick={() => moveSelectedObject('down')}>
-                      <MdOutlineArrowDropDown />
-                    </button>
-                  </div>
-                </div>
-  
-                {/* Move Container */}
-                <div className="move-container">
-                  <h1 className="move-header">MOVE</h1> {/* Centered Header */}
-                  <div className="move-labels">
-                    <label htmlFor="picture-option" className="move-label">
-                      <input type="radio" id="picture-option" name="move-option" />
-                      Picture
-                    </label>
-                    <label htmlFor="laser-eyes-option" className="move-label">
-                      <input type="radio" id="laser-eyes-option" name="move-option" />
-                      Laser Eyes
-                    </label>
-                  </div>
-                </div>
+              {/* Controls */}
+              <div className="controls">
+                <button onClick={() => moveSelectedObject('up')}><MdOutlineArrowDropUp /></button>
+                <button onClick={() => moveSelectedObject('left')}><MdOutlineArrowLeft /></button>
+                <button onClick={() => moveSelectedObject('right')}><MdOutlineArrowRight /></button>
+                <button onClick={() => moveSelectedObject('down')}><MdOutlineArrowDropDown /></button>
               </div>
             </div>
           </div>
-          </div>
         </div>
-      </animated.div>
-    );
-  };
-  
+      </div>
+    </animated.div>
+  );
+};
 
 export default PFPMaker;
