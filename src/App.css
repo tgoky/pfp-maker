@@ -102,14 +102,6 @@ body {
   color: aquamarine;
 }
 
-.card-container {
-  background-color: #333;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-  width: 50%;
-  margin-bottom: 75px;
-}
 
 .assets-header {
   font-size: 1.5em;
@@ -146,12 +138,7 @@ body {
   background-color: #555;
 }
 
-.tiles-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
+
 
 .tile {
   width: 100px;
@@ -169,6 +156,7 @@ body {
 .assets-image {
   width: 70px;
   height: 70px;
+
   border: 3px solid #fff;
   border-radius: 15px;
   margin-bottom: 1px;
@@ -216,3 +204,51 @@ body {
   }
 }
 
+.scaler {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  position: relative; /* Use relative positioning */
+  margin-top: 1px; 
+  margin-bottom: 10px;
+  top:-98px;
+  left: 80px;
+  margin-left: 60px;/* Add margin if needed */
+  width: 300px; /* Adjust width as needed */
+}
+
+.scale-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scale-label {
+  color: white;
+  font-size: 14px;
+}
+
+.scale-slider {
+  flex: 1;
+}
+
+.scale-button {
+  background-color: #0d324b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.scale-button:hover {
+  background-color: #0a2538;
+}
+
+.tiles-container {
+
+    margin-top: -59px;
+
+
+}

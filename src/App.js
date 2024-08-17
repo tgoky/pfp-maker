@@ -38,6 +38,10 @@ const PFPMaker = () => {
     config: { tension: 300, friction: 15 },
   });
 
+  // State for scale values
+  const [profilePictureValue, setProfilePictureValue] = useState(50);
+  const [laserEyesValue, setLaserEyesValue] = useState(50);
+
   useEffect(() => {
     const canvasInstance = new fabric.Canvas('pFPcanvas', {
       width: 400,
@@ -141,62 +145,95 @@ const PFPMaker = () => {
   };
 
   return (
-    
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
       <div style={{ width:'100%', backgroundColor: 'black' , height: '100%', marginTop: '150px', marginBottom: '150px' , marginLeft: '30px' , marginRight: '30px'}}>
-      <div className="canvas-card">
-        <canvas id="pFPcanvas" className="canvas"></canvas>
-        <div className="canvas-controls">
-          <animated.div style={fileInputStyle}>
-            <input type="file" id="imageUpload" className="file-input" />
-          </animated.div>
-          <button className="download-button" onClick={downloadCanvas}>
-            Download PFP
-          </button>
-        </div>
-        {/* My Assets Section */}
-        <div style={{backgroundColor: 'blue', marginTop: '-478px' , marginBottom: '50px', width: '34%', marginLeft: '700px'}}>
-        <div className="card-container">
-          <h2 className="assets-header">My Assets</h2>
-          <div className="tiles-container">
-            <div
-              className="tile"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <img
-                src="/gear.PNG"
-                alt="Assets"
-                className="assets-image"
-                style={assetImageStyle}
-                onClick={handleAssetClick}
-              />
+        <div className="canvas-card">
+          <canvas id="pFPcanvas" className="canvas"></canvas>
+          <div className="canvas-controls">
+            <animated.div style={fileInputStyle}>
+              <input type="file" id="imageUpload" className="file-input" />
+            </animated.div>
+            <button className="download-button" onClick={downloadCanvas}>
+              Download PFP
+            </button>
+          </div>
+          {/* My Assets Section */}
+          <div style={{backgroundColor: 'blue', marginTop: '200px', marginBottom: '150px', width: '34%', marginLeft: '700px', padding: '20px', position: 'fixed', top: '5px', bottom: '40px'}}>
+            <div className="card-container">
+              <h2 className="assets-header">My Assets</h2>
+              <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px',  }}>scale</h1>
+
+              <div className="tiles-container">
+                <div
+                  className="tile"
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                >
+                  <img
+                    src="/gear.PNG"
+                    alt="Assets"
+                    className="assets-image"
+                    style={assetImageStyle}
+                    onClick={handleAssetClick}
+                  />
+                </div>
+              </div>
+           
+              {/* Scaler Section */}
+              <div className="scaler">
+                <div className="scale-item">
+                  <label htmlFor="profile-picture-scale" className="scale-label">Pfp Profile:</label>
+                  <button className="scale-button" onClick={() => setProfilePictureValue(prev => Math.max(0, prev - 1))}>-</button>
+                  <input
+                    type="range"
+                    id="profile-picture-scale"
+                    className="scale-slider"
+                    min="0"
+                    max="100"
+                    value={profilePictureValue}
+                    onChange={(e) => setProfilePictureValue(e.target.value)}
+                  />
+                  <button className="scale-button" onClick={() => setProfilePictureValue(prev => Math.min(100, prev + 1))}>+</button>
+
+                </div>
+                <div className="scale-item">
+                  <label htmlFor="laser-eyes-scale" className="scale-label">Laser Eyes:</label>
+                  <button className="scale-button" onClick={() => setLaserEyesValue(prev => Math.max(0, prev - 1))}>-</button>
+                  <input
+                    type="range"
+                    id="laser-eyes-scale"
+                    className="scale-slider"
+                    min="0"
+                    max="100"
+                    value={laserEyesValue}
+                    onChange={(e) => setLaserEyesValue(e.target.value)}
+                  />
+                  <button className="scale-button" onClick={() => setLaserEyesValue(prev => Math.min(100, prev + 1))}>+</button>
+
+                </div>
+              </div>
+            </div>
+            {/* Controls Section */}
+            <div className="controls-container">
+              <h2>Controls</h2>
+              <div className="arrow-buttons">
+                <button className="arrow-button" onClick={() => moveSelectedObject('up')}>
+                  Up
+                </button>
+                <div className="horizontal-arrows">
+                  <button className="arrow-button" onClick={() => moveSelectedObject('left')}>
+                    Left
+                  </button>
+                  <button className="arrow-button" onClick={() => moveSelectedObject('right')}>
+                    Right
+                  </button>
+                </div>
+                <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
+                  Down
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        {/* Controls Section */}
-        <div className="controls-container">
-          <h2>Controls</h2>
-          <div className="arrow-buttons">
-            <button className="arrow-button" onClick={() => moveSelectedObject('up')}>
-              Up
-            </button>
-            <div className="horizontal-arrows">
-              <button className="arrow-button" onClick={() => moveSelectedObject('left')}>
-                Left
-              </button>
-              <button className="arrow-button" onClick={() => moveSelectedObject('right')}>
-                Right
-              </button>
-            </div>
-            <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
-              Down
-            </button>
-             {/* New Box Section */}
-     
-          </div>
-          </div>
-        </div>
         </div>
       </div>
     </animated.div>
