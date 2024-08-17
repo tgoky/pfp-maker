@@ -83,12 +83,14 @@ body {
 /* Right side - Controls */
 .controls-container {
   display: flex;
-  background-color: aquamarine;
+
   flex-direction: column;
   border-radius: 30px;
-  top: 20px;
   position: relative;
   
+  top: -40px; /* Increase negative top value */
+  margin-top: -20px; /* Or add a negative margin-top */
+
   justify-content: space-between;
   align-items: center;
   flex: 1;
@@ -116,8 +118,10 @@ body {
 
 .arrow-buttons {
   display: flex;
+
   flex-direction: column;
   align-items: center;
+  margin-left: 280px;
 }
 
 .horizontal-arrows {
@@ -134,10 +138,35 @@ body {
   background-color: #0d324b;
   color: white;
   border: none;
-  border-radius: 5px;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
   transition: background-color 0.3s ease;
 }
+
+/* For the Up button */
+.arrow-button.up {
+  border-radius: 15px 15px 0 0;
+}
+
+/* For the Down button */
+.arrow-button.down {
+  border-radius: 0 0 15px 15px;
+}
+
+/* For the Left button */
+.arrow-button.left {
+  border-radius: 15px 0 0 15px;
+  margin-left: -10px;
+
+
+}
+
+/* For the Right button */
+.arrow-button.right {
+  border-radius: 0 15px 15px 0;
+  margin-left: -40px;
+  margin-right: -9px;
+}
+
 
 .arrow-button:hover {
   background-color: #555;
@@ -283,5 +312,40 @@ body {
 
     margin-top: -59px;
 
+
+}
+
+.move-container {
+  border-radius: 15px;
+  background-color: #333; /* Or any color you prefer */
+  padding: 20px;
+  width: 30%;
+  margin-top: -20px; /* Adjust the margin-top to move it up */
+  position: relative; /* Ensure it's positioned relative to its parent */
+  top: -140px; /* Adjust the top value to move it up */
+  margin-left: -90px;
+  margin-right: 190px;
+}
+
+
+.move-labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.move-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.move-label input[type="radio"] {
+  margin-right: 10px;
+}
+
+.move-header {
+ 
+  color: white; /* Or any color you prefer */
 
 }

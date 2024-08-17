@@ -3,6 +3,10 @@ import { fabric } from 'fabric';
 import { useSpring, animated } from '@react-spring/web';
 import './App.css';
 
+import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineArrowLeft, MdOutlineArrowRight } from 'react-icons/md';
+
+
+
 const PFPMaker = () => {
   const [canvas, setCanvas] = useState(null);
 
@@ -146,7 +150,7 @@ const PFPMaker = () => {
 
   return (
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
-      <div style={{ width:'100%', backgroundColor: 'black' , height: '100%', marginTop: '150px', marginBottom: '150px' , marginLeft: '30px' , marginRight: '30px'}}>
+      <div style={{ width: '100%', backgroundColor: 'black', height: '100%', marginTop: '150px', marginBottom: '150px', marginLeft: '30px', marginRight: '30px' }}>
         <div className="canvas-card">
           <canvas id="pFPcanvas" className="canvas"></canvas>
           <div className="canvas-controls">
@@ -158,17 +162,13 @@ const PFPMaker = () => {
             </button>
           </div>
           {/* My Assets Section */}
-          <div style={{ marginTop: '200px', marginBottom: '150px', width: '34%', marginLeft: '700px', padding: '20px', position: 'fixed', top: '5px', bottom: '40px'}}>
+          <div style={{ marginTop: '200px', marginBottom: '150px', width: '34%', marginLeft: '700px', padding: '20px', position: 'fixed', top: '5px', bottom: '40px' }}>
             <div className="card-container">
               <h2 className="assets-header">My Assets</h2>
-              <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px',   color: 'aquamarine' }}>scale</h1>
-
+              <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px', color: 'aquamarine' }}>scale</h1>
+  
               <div className="tiles-container">
-                <div
-                  className="tile"
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
-                >
+                <div className="tile" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
                   <img
                     src="/gear.PNG"
                     alt="Assets"
@@ -178,7 +178,7 @@ const PFPMaker = () => {
                   />
                 </div>
               </div>
-           
+  
               {/* Scaler Section */}
               <div className="scaler">
                 <div className="scale-item">
@@ -194,7 +194,6 @@ const PFPMaker = () => {
                     onChange={(e) => setProfilePictureValue(e.target.value)}
                   />
                   <button className="scale-button" onClick={() => setProfilePictureValue(prev => Math.min(100, prev + 1))}>+</button>
-
                 </div>
                 <div className="scale-item">
                   <label htmlFor="laser-eyes-scale" className="scale-label">Laser Eyes:</label>
@@ -209,36 +208,53 @@ const PFPMaker = () => {
                     onChange={(e) => setLaserEyesValue(e.target.value)}
                   />
                   <button className="scale-button" onClick={() => setLaserEyesValue(prev => Math.min(100, prev + 1))}>+</button>
-
+                </div>
+              </div>
+  
+              {/* Controls Section */}
+              <div className="controls-container">
+                <h2>Controls</h2>
+                <div>
+                  <div className="arrow-buttons">
+                    <button className="arrow-button up" onClick={() => moveSelectedObject('up')}>
+                      <MdOutlineArrowDropUp />
+                    </button>
+                    <div className="horizontal-arrows">
+                      <button className="arrow-button left" onClick={() => moveSelectedObject('left')}>
+                        <MdOutlineArrowLeft />
+                      </button>
+                      <button className="arrow-button right" onClick={() => moveSelectedObject('right')}>
+                        <MdOutlineArrowRight />
+                      </button>
+                    </div>
+                    <button className="arrow-button down" onClick={() => moveSelectedObject('down')}>
+                      <MdOutlineArrowDropDown />
+                    </button>
+                  </div>
+                </div>
+  
+                {/* Move Container */}
+                <div className="move-container">
+                  <h1 className="move-header">MOVE</h1> {/* Centered Header */}
+                  <div className="move-labels">
+                    <label htmlFor="picture-option" className="move-label">
+                      <input type="radio" id="picture-option" name="move-option" />
+                      Picture
+                    </label>
+                    <label htmlFor="laser-eyes-option" className="move-label">
+                      <input type="radio" id="laser-eyes-option" name="move-option" />
+                      Laser Eyes
+                    </label>
+                  </div>
                 </div>
               </div>
             </div>
-            {/* Controls Section */}
-            <div style={{ position: 'relative', marginBottom: '5px' , marginTop: '30px'}}>
-            <div className="controls-container">
-              <h2>Controls</h2>
-              <div className="arrow-buttons">
-                <button className="arrow-button" onClick={() => moveSelectedObject('up')}>
-                  Up
-                </button>
-                <div className="horizontal-arrows">
-                  <button className="arrow-button" onClick={() => moveSelectedObject('left')}>
-                    Left
-                  </button>
-                  <button className="arrow-button" onClick={() => moveSelectedObject('right')}>
-                    Right
-                  </button>
-                </div>
-                <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
-                  Down
-                </button>
-              </div></div>
-            </div>
+          </div>
           </div>
         </div>
-      </div>
-    </animated.div>
-  );
-};
+      </animated.div>
+    );
+  };
+  
 
 export default PFPMaker;
