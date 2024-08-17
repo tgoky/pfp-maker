@@ -32,9 +32,9 @@ const PFPMaker = () => {
     boxShadow: hovered
       ? '0 0 12px rgba(255, 255, 255, 0.8)'
       : '0 0 8px rgba(255, 255, 255, 0.5)',
-    borderRadius: '10px', // Add border radius
-    backgroundColor: '#0d324b', // Add background color
-    transition: 'background-color 0.3s ease', // Add transition for background color
+    borderRadius: '10px',
+    backgroundColor: '#0d324b',
+    transition: 'background-color 0.3s ease',
     config: { tension: 300, friction: 15 },
   });
 
@@ -78,24 +78,21 @@ const PFPMaker = () => {
           img.scaleToWidth(240);
           canvasInstance.centerObject(img);
           canvasInstance.add(img);
-          canvasInstance.setActiveObject(img); // Set the uploaded image as active
+          canvasInstance.setActiveObject(img);
           canvasInstance.renderAll();
         });
       };
       reader.readAsDataURL(e.target.files[0]);
     };
 
-    // Event listeners
     const imageUploadInput = document.getElementById('imageUpload');
     imageUploadInput.addEventListener('change', handleImageUpload);
 
-    // Cleanup function
     return () => {
       imageUploadInput.removeEventListener('change', handleImageUpload);
     };
   }, []);
 
-  // Function to download the canvas as an image
   const downloadCanvas = () => {
     if (canvas) {
       const dataURL = canvas.toDataURL('image/png');
@@ -106,21 +103,19 @@ const PFPMaker = () => {
     }
   };
 
-  // Function to handle asset image click and duplicate on canvas
   const handleAssetClick = () => {
-    const imagePath = '/gear.PNG'; // Path to the image
+    const imagePath = '/gear.PNG';
     if (canvas) {
       fabric.Image.fromURL(imagePath, (img) => {
-        img.scaleToWidth(100); // Adjust the size of the duplicate image
-        canvas.centerObject(img); // Center the image on the canvas
+        img.scaleToWidth(100);
+        canvas.centerObject(img);
         canvas.add(img);
-        canvas.setActiveObject(img); // Set the duplicated image as active
+        canvas.setActiveObject(img);
         canvas.renderAll();
       });
     }
   };
 
-  // Function to move the selected object
   const moveSelectedObject = (direction) => {
     const activeObject = canvas?.getActiveObject();
     if (activeObject) {
@@ -140,24 +135,18 @@ const PFPMaker = () => {
         default:
           break;
       }
-      activeObject.setCoords(); // Update the object's coordinates
+      activeObject.setCoords();
       canvas.renderAll();
     }
   };
 
   return (
+    
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
-      <canvas id="pFPcanvas" className="canvas">rr</canvas> {/* Canvas on the left */}
-  
-      {/* Controls on the right */}
-      <div className="controls-container">
-        <img src='/aq.PNG' alt='Logo' className="pfpmaker-logo" />
-        <animated.h1 style={{ ...headerStyle }} className="pfpmaker-header">
-          Aequor Finance PFP Maker
-        </animated.h1>
-  
-        {/* First Card Container */}
-        <div className="card-container">
+      <div style={{ width:'100%', backgroundColor: 'black' , height: '100%', marginTop: '150px', marginBottom: '150px' }}>
+      <div className="canvas-card">
+        <canvas id="pFPcanvas" className="canvas"></canvas>
+        <div className="canvas-controls">
           <animated.div style={fileInputStyle}>
             <input type="file" id="imageUpload" className="file-input" />
           </animated.div>
@@ -165,53 +154,49 @@ const PFPMaker = () => {
             Download PFP
           </button>
         </div>
-  
-        {/* Second Card Container */}
+        {/* My Assets Section */}
         <div className="card-container">
-          <div className="left-section">
-            <h2 className="assets-header">My Assets</h2>
-            <div className="tiles-container">
-              <div
-                className="tile"
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-              >
-                <img
-                  src="/gear.PNG"
-                  alt="Assets"
-                  className="assets-image"
-                  style={assetImageStyle}
-                  onClick={handleAssetClick}
-                />
-              </div>
-              {/* Add more tiles here if needed */}
+          <h2 className="assets-header">My Assets</h2>
+          <div className="tiles-container">
+            <div
+              className="tile"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+            >
+              <img
+                src="/gear.PNG"
+                alt="Assets"
+                className="assets-image"
+                style={assetImageStyle}
+                onClick={handleAssetClick}
+              />
             </div>
           </div>
-  
-          <div className="right-section">
-            <h2>Controls</h2>
-            <div className="arrow-buttons">
-              <button className="arrow-button" onClick={() => moveSelectedObject('up')}>
-                Up
+        </div>
+        {/* Controls Section */}
+        <div className="controls-container">
+          <h2>Controls</h2>
+          <div className="arrow-buttons">
+            <button className="arrow-button" onClick={() => moveSelectedObject('up')}>
+              Up
+            </button>
+            <div className="horizontal-arrows">
+              <button className="arrow-button" onClick={() => moveSelectedObject('left')}>
+                Left
               </button>
-              <div className="horizontal-arrows">
-                <button className="arrow-button" onClick={() => moveSelectedObject('left')}>
-                  Left
-                </button>
-                <button className="arrow-button" onClick={() => moveSelectedObject('right')}>
-                  Right
-                </button>
-              </div>
-              <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
-                Down
+              <button className="arrow-button" onClick={() => moveSelectedObject('right')}>
+                Right
               </button>
             </div>
+            <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
+              Down
+            </button>
           </div>
+        </div>
         </div>
       </div>
     </animated.div>
   );
-  
 };
 
 export default PFPMaker;

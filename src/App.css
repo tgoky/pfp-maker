@@ -13,12 +13,12 @@ body {
 
 /* Styles for PFPMaker */
 .pfpmaker-container {
-  display: flex; /* Change to flex to position the canvas and controls side by side */
+  display: flex;
   background-image: url('/public/pfp1.PNG');
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   max-width: 90%;
   margin: 0 auto;
   padding: 10px;
@@ -26,18 +26,59 @@ body {
   overflow-y: auto;
 }
 
-/* Left side - Canvas (Screen) */
+/* Left side - Canvas and File/Download buttons */
+
+
 .canvas {
-  flex: 1; /* Make the canvas take up available space */
-  border: 5px solid #ffffff; 
   width: 100%; 
   height: auto;
+  border: 5px solid #ffffff;
   border-radius: 8px;
-  border-style: dotted; 
-  margin-right:  70px; /* Decrease right margin to push the canvas further from the extreme left */
-  margin-top: 145px; /* Maintain the vertical alignment */
-  margin-left: 40px; /* Optional: Add left margin to nudge the canvas slightly to the right */
+  border-style: dotted;
+  margin-bottom: 20px;
+  padding: 8px;
+  margin-top: 100px;
+  margin-left: 110px;
 }
+
+
+.file-input {
+  display: inline-block;
+  width: 150px;
+  padding: 7px;
+  border-radius: 95px;
+  border: 2px solid #ccc;
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 140px;
+  margin-left: 140px;
+  font-size: 0.9rem;
+  margin: 2 10px; /* Horizontal spacing */
+}
+
+
+.download-button {
+  display: inline-block;
+  width: 150px;
+  padding: 8px;
+  border-radius: 45px;
+  border: 2px solid #ccc;
+  background-color: #444;
+  color: #fff;
+  text-align: center;
+  position: fixed; 
+  cursor: pointer;
+  margin-top: -38px;
+  margin-left: 350px;
+  font-size: 0.9rem;
+  margin: 2 10px; /* Horizontal spacing */
+}
+
+
+
+
 
 /* Right side - Controls */
 .controls-container {
@@ -45,53 +86,29 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex: 1; /* Make the controls take up the remaining space */
+  flex: 1;
 }
 
 .pfpmaker-logo {
   height: 60px;
   width: 60px;
   margin-bottom: 10px;
-  filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
 }
 
 .pfpmaker-header {
   font-size: 1.2rem;
   margin-bottom: 10px;
-  color: aquamarine; /* Matching the assets header color */
+  color: aquamarine;
 }
 
 .card-container {
   background-color: #333;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.8);
-  width: 50%; /* Make sure the card takes up full width of the controls container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  width: 50%;
   margin-bottom: 75px;
-}
-
-.file-input {
-  display: block;
-  margin: 10px auto;
-  padding: 6px;
-  border-radius: 5px;
-  border: 2px solid #ccc;
-  background-color: #222;
-  color: #fff;
-  width: 80%;
-  font-size: 0.9rem;
-}
-
-.download-button {
-  display: block;
-  margin: 10px auto;
-  padding: 8px 16px;
-  border-radius: 5px;
-  border: 2px solid #ccc;
-  background-color: #444;
-  color: #fff;
-  cursor: pointer;
-  font-size: 0.9rem;
 }
 
 .assets-header {
@@ -160,13 +177,18 @@ body {
 /* Responsive adjustments for mobile devices */
 @media (max-width: 600px) {
   .pfpmaker-container {
-    flex-direction: column; /* Stack the canvas and controls vertically on mobile */
+    flex-direction: column;
     padding: 5px;
   }
 
+  .left-container {
+    margin-right: 0;
+    margin-bottom: 20px;
+    margin-top: 50px; /* Adjust the margin-top for mobile */
+  }
+
   .canvas {
-    margin-right: 0; /* Remove the right margin when stacked vertically */
-    margin-bottom: 20px; /* Add space between the canvas and controls */
+    margin-bottom: 20px;
   }
 
   .pfpmaker-logo {
@@ -193,3 +215,4 @@ body {
     height: 60px;
   }
 }
+
