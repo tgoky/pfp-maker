@@ -242,18 +242,20 @@ body {
   flex-direction: column;
   gap: 20px;
   padding: 10px;
-
+  background-size: cover;
+  background-position: center;
   position: relative; /* Use relative positioning */
   margin-top: 1px; 
   margin-bottom: 10px;
   top: -108px;
   left: 58px;
+  background-image: url('/public/bubble2.PNG');
   margin-left: 60px; /* Add margin if needed */
   width: 300px; /* Adjust width as needed */
 
   border: 12px solid transparent; /* Make the border transparent */
   border-radius: 8px; /* Adjust border-radius as needed */
-  background: #0d324b; /* Set the background color for the glow effect */
+ /* Set the background color for the glow effect */
   position: relative; /* Ensure relative positioning for pseudo-elements */
 
   /* Glowing border effect */
@@ -271,7 +273,7 @@ body {
   right: -12px; /* Adjust to match the border thickness */
   bottom: -12px; /* Adjust to match the border thickness */
   border-radius: 78px; /* Match the border-radius */
-  background: rgba(0, 0, 255, 0.5); /* Blue bubble glow color */
+  background-image: url('/public/bubble2.PNG');
   z-index: -1; /* Place the glow behind the scaler */
   box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), /* Blue glow */
               0 0 25px rgba(0, 0, 255, 0.4), /* Slightly larger glow */
@@ -320,6 +322,9 @@ body {
   background-color: #333; /* Or any color you prefer */
   padding: 20px;
   width: 30%;
+  background-image: url('/public/bubble2.PNG');
+  background-size: cover;
+  background-position: center;
   margin-top: -20px; /* Adjust the margin-top to move it up */
   position: relative; /* Ensure it's positioned relative to its parent */
   top: -140px; /* Adjust the top value to move it up */
