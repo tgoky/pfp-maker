@@ -155,6 +155,7 @@ const PFPMaker = () => {
           </button>
         </div>
         {/* My Assets Section */}
+        <div style={{backgroundColor: 'blue', marginTop: '-478px' , marginBottom: '50px', width: '34%', marginLeft: '700px'}}>
         <div className="card-container">
           <h2 className="assets-header">My Assets</h2>
           <div className="tiles-container">
@@ -191,6 +192,9 @@ const PFPMaker = () => {
             <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
               Down
             </button>
+             {/* New Box Section */}
+     
+          </div>
           </div>
         </div>
         </div>
