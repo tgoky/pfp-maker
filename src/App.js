@@ -158,10 +158,10 @@ const PFPMaker = () => {
             </button>
           </div>
           {/* My Assets Section */}
-          <div style={{backgroundColor: 'blue', marginTop: '200px', marginBottom: '150px', width: '34%', marginLeft: '700px', padding: '20px', position: 'fixed', top: '5px', bottom: '40px'}}>
+          <div style={{ marginTop: '200px', marginBottom: '150px', width: '34%', marginLeft: '700px', padding: '20px', position: 'fixed', top: '5px', bottom: '40px'}}>
             <div className="card-container">
               <h2 className="assets-header">My Assets</h2>
-              <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px',  }}>scale</h1>
+              <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px',   color: 'aquamarine' }}>scale</h1>
 
               <div className="tiles-container">
                 <div
@@ -214,6 +214,7 @@ const PFPMaker = () => {
               </div>
             </div>
             {/* Controls Section */}
+            <div style={{ position: 'relative', marginBottom: '5px' , marginTop: '30px'}}>
             <div className="controls-container">
               <h2>Controls</h2>
               <div className="arrow-buttons">
@@ -231,7 +232,7 @@ const PFPMaker = () => {
                 <button className="arrow-button" onClick={() => moveSelectedObject('down')}>
                   Down
                 </button>
-              </div>
+              </div></div>
             </div>
           </div>
         </div>

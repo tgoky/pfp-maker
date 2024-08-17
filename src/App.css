@@ -83,7 +83,12 @@ body {
 /* Right side - Controls */
 .controls-container {
   display: flex;
+  background-color: aquamarine;
   flex-direction: column;
+  border-radius: 30px;
+  top: 20px;
+  position: relative;
+  
   justify-content: space-between;
   align-items: center;
   flex: 1;
@@ -137,7 +142,6 @@ body {
 .arrow-button:hover {
   background-color: #555;
 }
-
 
 
 .tile {
@@ -209,14 +213,43 @@ body {
   flex-direction: column;
   gap: 20px;
   padding: 10px;
+
   position: relative; /* Use relative positioning */
   margin-top: 1px; 
   margin-bottom: 10px;
-  top:-98px;
-  left: 80px;
-  margin-left: 60px;/* Add margin if needed */
+  top: -108px;
+  left: 58px;
+  margin-left: 60px; /* Add margin if needed */
   width: 300px; /* Adjust width as needed */
+
+  border: 12px solid transparent; /* Make the border transparent */
+  border-radius: 8px; /* Adjust border-radius as needed */
+  background: #0d324b; /* Set the background color for the glow effect */
+  position: relative; /* Ensure relative positioning for pseudo-elements */
+
+  /* Glowing border effect */
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), /* Blue glow */
+              0 0 25px rgba(0, 0, 255, 0.4), /* Slightly larger glow */
+              0 0 35px rgba(0, 0, 255, 0.3); /* Even larger glow */
 }
+
+/* Create the border glow effect using pseudo-elements */
+.scaler::before {
+  content: '';
+  position: absolute;
+  top: -12px; /* Adjust to match the border thickness */
+  left: -12px; /* Adjust to match the border thickness */
+  right: -12px; /* Adjust to match the border thickness */
+  bottom: -12px; /* Adjust to match the border thickness */
+  border-radius: 78px; /* Match the border-radius */
+  background: rgba(0, 0, 255, 0.5); /* Blue bubble glow color */
+  z-index: -1; /* Place the glow behind the scaler */
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.5), /* Blue glow */
+              0 0 25px rgba(0, 0, 255, 0.4), /* Slightly larger glow */
+              0 0 35px rgba(0, 0, 255, 0.3); /* Even larger glow */
+}
+
+
 
 .scale-item {
   display: flex;
