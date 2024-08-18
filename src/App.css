@@ -224,7 +224,9 @@ body {
   }
 
   .card-container {
-    width: 100%;
+    width: 200%;
+   margin-top: 500px;
+    position: relative;
     padding: 8px;
   }
 
@@ -360,62 +362,102 @@ body {
 /* Responsive adjustments for mobile devices */
 @media (max-width: 600px) {
   .pfpmaker-container {
+    display: flex;
     flex-direction: column; /* Stack content vertically */
     padding: 5px;
     align-items: center; /* Center align items */
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh; /* Ensure container does not exceed viewport height */
   }
 
+
+  .assets-header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    left: -50px;
+    bottom: -10px;
+    position: relative;
+    color: aquamarine;
+  }
+  
   .canvas {
-    width: 80%; /* Adjust width for portrait */
-    margin: 20px auto; /* Center horizontally and add margin */
-  }
-
-  .file-input,
-  .download-button {
-    width: 80%; /* Adjust width for portrait */
+    width: 90%; /* Adjust width for portrait */
+    height: 100px; /* Adjust height for portrait */
     margin: 10px auto; /* Center horizontally and add margin */
   }
 
+  .file-inpute {
+    width: 40%; /* Adjust width for portrait */
+    margin: 20px auto; /* Center horizontally and add margin */
+    position: relative; /* Use relative positioning instead of fixed */
+    left: 300px; /* Move the elements to the right */
+    top: -92px;
+    right: 90px;
+    margin-left: 50px; /* Increase margin to move elements to the right */
+}
+
+
+.download-button {
+    width: 40%; /* Adjust width for portrait */
+    margin: 20px auto; /* Center horizontally and add margin */
+    position: relative; /* Use relative positioning instead of fixed */
+    left: 400px; /* Move the elements to the right */
+    top: -170px;
+    margin-left: 50px; /* Increase margin to move elements to the right */
+}
+  
+  
+.flex-container {
+  display: flex; /* Align elements horizontally */
+  justify-content: flex-start; /* Align to the left (or use 'center' for centering) */
+  align-items: center; /* Vertically center the items */
+  gap: 20px;
+}
+
+
+  /* Add margins to ensure spacing between components */
   .controls-container {
     width: 90%; /* Adjust width for portrait */
-    margin-top: 20px; /* Add margin to separate from other content */
-    top: 0; /* Remove negative top value */
-    margin-bottom: 20px;
+    margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .scaler {
-    width: 90%; /* Adjust width for portrait */
-    margin: 20px auto; /* Center horizontally and add margin */
-    left: 0; /* Remove left positioning */
-    top: 0; /* Remove top positioning */
+    width: 90%;
+    position: relative;
+    top: -180px;
+    
+    margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .tiles-container {
-    width: 90%; /* Adjust width for portrait */
-    margin: 20px auto; /* Center horizontally and add margin */
+    width: 90%;
+    position: relative;
+    left: -70px;
+    top: -50px;
+    margin-bottom: 30px;
+    margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .move-container {
-    width: 90%; /* Adjust width for portrait */
-    margin: 20px auto; /* Center horizontally and add margin */
-    top: 0; /* Remove top positioning */
-    margin-left: 0; /* Remove left margin */
-    margin-right: 0; /* Remove right margin */
+    width: 40%;
+    position: relative;
+    top: -300px;
+    left: -135px;
+    margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .arrow-buttons {
-    flex-direction: row; /* Display arrows in a row for portrait */
-    justify-content: center; /* Center horizontally */
-    margin: 20px auto; /* Add margin */
+    width: 100%;
+    margin: 20px auto; /* Add margin to separate from other components */
+    display: flex;
+    position: relative;
+    top: -100px;
+    right: -100px;
+    flex-direction: column; /* Arrange arrows vertically */
+    align-items: center; /* Center arrows horizontally */
   }
 
-  .horizontal-arrows {
-    flex-direction: row; /* Stack horizontally in portrait */
-    width: auto;
-    justify-content: space-around;
-    margin: 10px auto;
-  }
-
+ 
   .pfpmaker-logo {
     height: 50px;
     width: 50px;
@@ -428,6 +470,48 @@ body {
   .assets-image {
     width: 60px;
     height: 60px;
+  }
+
+  .full-width-background {
+    width: 100%;
+    background-image: url('/src/assets/FG.png');
+    height: 100px; /* Adjust height as needed */
+    margin: 20px 0; /* Add margin to separate from other content */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .fixed-box {
+    margin-top: 20px;
+    width: 90%;
+    padding: 20px;
+    margin-left: -90px;
+    margin-right: 900px;
+ 
+    position: relative; /* Adjust position */
+  }
+
+  /* Additional adjustments */
+  .canvas-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .canvas-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .file-inpute, .download-button {
+    margin: 10px auto;
   }
 }
 
