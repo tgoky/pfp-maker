@@ -150,19 +150,22 @@ const PFPMaker = () => {
 
   return (
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
-      <div style={{ width: '100%',  backgroundImage: 'url(/FG.PNG)', height: '100%', marginTop: '150px', marginBottom: '150px', marginLeft: '30px', marginRight: '30px',   backgroundSize: 'cover',     backgroundPosition: 'center', }}>
+      <div  className="full-width-background">
         <div className="canvas-card">
           <canvas id="pFPcanvas" className="canvas"></canvas>
           <div className="canvas-controls">
-            <animated.div style={fileInputStyle}>
-              <input type="file" id="imageUpload" className="file-input" />
-            </animated.div>
-            <button className="download-button" onClick={downloadCanvas}>
-              Download PFP
-            </button>
-          </div>
+          <div className="flex-container">
+  <div style={fileInputStyle}>
+    <input type="file" id="imageUpload" className="file-inpute" />
+  </div>
+  
+  <button className="download-button" onClick={downloadCanvas}>
+    Download PFP
+  </button>
+</div>
+</div>
           {/* My Assets Section */}
-          <div style={{ marginTop: '200px', marginBottom: '150px', width: '34%', marginLeft: '700px', padding: '20px', position: 'fixed', top: '5px', bottom: '40px' }}>
+          <div className="fixed-box">
             <div className="card-container">
               <h2 className="assets-header">My Assets</h2>
               <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px', color: 'aquamarine' }}>scale</h1>
