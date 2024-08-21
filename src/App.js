@@ -56,8 +56,8 @@ const PFPMaker = () => {
 
     // Create a marble-like gradient pattern
     const marbleCanvas = document.createElement('canvas');
-    marbleCanvas.width = 400;
-    marbleCanvas.height = 400;
+    marbleCanvas.width = 50;
+    marbleCanvas.height = 50;
     const marbleCtx = marbleCanvas.getContext('2d');
 
     const gradient = marbleCtx.createLinearGradient(0, 0, 400, 400);
@@ -150,9 +150,12 @@ const PFPMaker = () => {
 
   return (
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
+<h1 class="pfp-maker-header">Aequor Finance PfP Maker</h1>
+
+
       <div  className="full-width-background">
-        <div className="canvas-card">
-          <canvas id="pFPcanvas" className="canvas"></canvas>
+
+          <canvas id="pFPcanvas" ></canvas>
           <div className="canvas-controls">
           <div className="flex-container">
   <div style={fileInputStyle}>
@@ -160,15 +163,15 @@ const PFPMaker = () => {
   </div>
   
   <button className="download-button" onClick={downloadCanvas}>
-    Download PFP
+    Download
   </button>
-</div>
+
 </div>
           {/* My Assets Section */}
           <div className="fixed-box">
             <div className="card-container">
               <h2 className="assets-header">My Assets</h2>
-              <h1 style={{ marginLeft: '260px', position: 'relative', top: '-55px', color: 'aquamarine' }}>scale</h1>
+              <h1 className="scale-heading">scale</h1>
   
               <div className="tiles-container">
                 <div className="tile" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
@@ -181,11 +184,14 @@ const PFPMaker = () => {
                   />
                 </div>
               </div>
-  
+
+              <div className="downpart">
+                 
               {/* Scaler Section */}
               <div className="scaler">
                 <div className="scale-item">
                   <label htmlFor="profile-picture-scale" className="scale-label">Pfp Profile:</label>
+                  <div className="scale-down">
                   <button className="scale-button" onClick={() => setProfilePictureValue(prev => Math.max(0, prev - 1))}>-</button>
                   <input
                     type="range"
@@ -197,6 +203,7 @@ const PFPMaker = () => {
                     onChange={(e) => setProfilePictureValue(e.target.value)}
                   />
                   <button className="scale-button" onClick={() => setProfilePictureValue(prev => Math.min(100, prev + 1))}>+</button>
+                </div>
                 </div>
                 <div className="scale-item">
                   <label htmlFor="laser-eyes-scale" className="scale-label">Laser Eyes:</label>
@@ -212,6 +219,7 @@ const PFPMaker = () => {
                   />
                   <button className="scale-button" onClick={() => setLaserEyesValue(prev => Math.min(100, prev + 1))}>+</button>
                 </div>
+              </div>
               </div>
   
               {/* Controls Section */}
@@ -237,6 +245,7 @@ const PFPMaker = () => {
                 </div>
   
                 {/* Move Container */}
+               
                 <div className="move-container">
                   <h1 className="move-header">MOVE</h1> {/* Centered Header */}
                   <div className="move-labels">
@@ -248,8 +257,10 @@ const PFPMaker = () => {
                       <input type="radio" id="laser-eyes-option" name="move-option" />
                       Laser Eyes
                     </label>
-                  </div>
-                </div>
+                    </div>
+                    </div>
+             
+             
               </div>
             </div>
           </div>

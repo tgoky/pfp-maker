@@ -27,7 +27,14 @@ body {
 }
 
 /* Left side - Canvas and File/Download buttons */
-
+#pFPcanvas {
+  width: 300px !important;
+  height: 300px !important;
+  margin-bottom: 20px;
+  margin-top: 100px;
+  margin-left: 150px;
+  
+}
 
 .canvas {
   width: 100%; 
@@ -45,11 +52,11 @@ body {
   display: flex;
   align-items: center; /* Aligns items vertically within the container */
   justify-content: center; /* Centers the items horizontally within the container */
-  margin-top: 140px; /* Adjust as needed */
-  margin-left: -600px; /* Adjust this value to move the elements to the left */
+  margin-top: -9px; /* Adjust as needed */
+  margin-left: -540px; /* Adjust this value to move the elements to the left */
 }
 .file-inpute {
-  width: 150px;
+  width: 100px;
   padding: 7px;
   border-radius: 95px;
   border: 2px solid #ccc;
@@ -64,7 +71,7 @@ body {
 }
 
 .download-button {
-  width: 150px;
+  width: 100px;
   padding: 8px;
   border-radius: 45px;
   border: 2px solid #ccc;
@@ -76,10 +83,6 @@ body {
   cursor: pointer;
   font-size: 0.9rem;
 }
-
-
-
-
 
 
 /* Right side - Controls */
@@ -241,6 +244,29 @@ body {
   }
 }
 
+.full-width-background {
+  width: 100%;
+  background-image: url('/src/assets/FG.png');
+  height: 600px;
+  margin-top: 150px;
+  margin-bottom: 200px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-size: cover;
+  background-position: center;
+}
+
+.fixed-box {
+  margin-top: 200px;
+  margin-bottom: 150px;
+  width: 34%;
+  margin-left: 700px;
+  padding: 20px;
+  position: fixed;
+  top: 5px;
+  bottom: 40px;
+}
+
 .scaler {
   display: flex;
   flex-direction: column;
@@ -364,45 +390,143 @@ body {
   .pfpmaker-container {
     display: flex;
     flex-direction: column; /* Stack content vertically */
-    padding: 5px;
+    padding: 15px;
+    width: 100%;
     align-items: center; /* Center align items */
     overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 100vh; /* Ensure container does not exceed viewport height */
+ /* Ensure container does not exceed viewport height */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    height: 100vh; /* Ensure the container takes up the full viewport height */
   }
 
+  .full-width-background {
+    width: 100%;
+    background-image: url('/src/assets/FG.png');
+    height: 900px;
+    margin-top: 150px;
+    margin-bottom: 200px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-size: cover;
+    background-position: center;
+  }
 
-  .assets-header {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    left: -50px;
-    bottom: -10px;
+  .downpart {
+    background-color: rgb(138, 153, 138);
     position: relative;
-    color: aquamarine;
+    bottom: 800px;
+     width: 200px;
+    padding: 30px;
+    left: 500px;
+    top: -860px;
+    height: 400px;
+  }
+  /* SCALE */
+  .scale-down {
+    position: relative;
+    top: 30px;
+    left: -30px;
+   
+  }
+
+  .scale-label {
+    color: white;
+    font-size:12px;
+  }
+
+  .scale-button {
+    background-color: #0d324b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    position: relative;
+    top: 20px;
+    left: -20px;
+    cursor: pointer;
   }
   
-  .canvas {
-    width: 90%; /* Adjust width for portrait */
-    height: 100px; /* Adjust height for portrait */
-    margin: 10px auto; /* Center horizontally and add margin */
+  .scale-button:hover {
+    background-color: #0a2538;
+  }
+  
+  .fixed-box {
+    margin-top: 200px;
+    margin-bottom: 150px;
+    width: 34%;
+    margin-left: 700px;
+    padding: 20px;
+    position: fixed;
+    top: 5px;
+    bottom: 40px;
+    background-color: blue;
   }
 
+  .scale-heading {
+    display: none;
+  }
+  
+  /* END SCALE */
+
+  .assets-header {
+   display: none;
+  }
+
+  .pfp-maker-header {
+    font-size: 19px;
+    position: fixed;
+    
+    margin-left: -470px;
+    margin-top: 40px;
+    color: white;
+    top: 40px;
+  }
+  
+  
+  .canvas {
+    width: 10px; /* Adjust width to make it smaller */
+    height: 50px; /* Maintain aspect ratio by setting height to auto */
+    margin: 10px auto;
+    margin-left: -15px; /* Center horizontally and add margin */
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+
+
+#pFPcanvas {
+  width: 250px !important;
+  height: 250px !important;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-left: 42px;
+  
+  
+}
+
+
+
+
+
   .file-inpute {
-    width: 40%; /* Adjust width for portrait */
+    width: 34%; /* Adjust width for portrait */
     margin: 20px auto; /* Center horizontally and add margin */
     position: relative; /* Use relative positioning instead of fixed */
     left: 300px; /* Move the elements to the right */
     top: -92px;
     right: 90px;
-    margin-left: 50px; /* Increase margin to move elements to the right */
+    margin-left: 50px;  /* */
 }
 
 
 .download-button {
-    width: 40%; /* Adjust width for portrait */
+    width: 34%; /* Adjust width for portrait */
     margin: 20px auto; /* Center horizontally and add margin */
     position: relative; /* Use relative positioning instead of fixed */
-    left: 400px; /* Move the elements to the right */
-    top: -170px;
+    left: 350px; /* Move the elements to the right */
+    top: -175px;
+    height: 43px;
     margin-left: 50px; /* Increase margin to move elements to the right */
 }
   
@@ -422,28 +546,39 @@ body {
   }
 
   .scaler {
-    width: 90%;
+    width: 80%;
     position: relative;
-    top: -180px;
-    
+    top: 5px;
+    left: -10px;
+    padding: 2px;
+   height: 120px;
     margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .tiles-container {
     width: 90%;
     position: relative;
-    left: -70px;
-    top: -50px;
+    left: -4px;
+    top: 50px;
     margin-bottom: 30px;
     margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .move-container {
-    width: 40%;
-    position: relative;
-    top: -300px;
-    left: -135px;
-    margin: 20px auto; /* Add margin to separate from other components */
+    border-radius: 15px;
+    background-color: #333; /* Or any color you prefer */
+    padding: 20px;
+    width: 24%;
+    left: 400px;
+    height: 40px;
+    background-image: url('/src/assets/AS.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: -20px; /* Adjust the margin-top to move it up */
+    position: relative; /* Ensure it's positioned relative to its parent */
+    top: -1200px; /* Adjust the top value to move it up */
+    margin-left: -90px;
+    margin-right: 190px;
   }
 
   .arrow-buttons {
@@ -451,7 +586,7 @@ body {
     margin: 20px auto; /* Add margin to separate from other components */
     display: flex;
     position: relative;
-    top: -100px;
+    top: -197px;
     right: -100px;
     flex-direction: column; /* Arrange arrows vertically */
     align-items: center; /* Center arrows horizontally */
@@ -472,14 +607,6 @@ body {
     height: 60px;
   }
 
-  .full-width-background {
-    width: 100%;
-    background-image: url('/src/assets/FG.png');
-    height: 100px; /* Adjust height as needed */
-    margin: 20px 0; /* Add margin to separate from other content */
-    background-size: cover;
-    background-position: center;
-  }
 
   .fixed-box {
     margin-top: 20px;
@@ -487,16 +614,12 @@ body {
     padding: 20px;
     margin-left: -90px;
     margin-right: 900px;
- 
+
     position: relative; /* Adjust position */
   }
 
   /* Additional adjustments */
-  .canvas-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+ 
 
   .canvas-controls {
     display: flex;
@@ -515,25 +638,21 @@ body {
   }
 }
 
-.full-width-background {
-  width: 100%;
-  background-image: url('/src/assets/FG.png');
-  height: 600px;
-  margin-top: 150px;
-  margin-bottom: 200px;
-  margin-left: 30px;
-  margin-right: 30px;
-  background-size: cover;
-  background-position: center;
+
+
+.scale-heading {
+  margin-left: 260px;
+  position: relative;
+  top: -55px;
+  color: aquamarine;
 }
 
-.fixed-box {
-  margin-top: 200px;
-  margin-bottom: 150px;
-  width: 34%;
-  margin-left: 700px;
-  padding: 20px;
+.pfp-maker-header {
+  font-size: 19px;
   position: fixed;
-  top: 5px;
-  bottom: 40px;
+  left: 510px;
+  color: white;
 }
+
+
+
