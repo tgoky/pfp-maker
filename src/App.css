@@ -366,6 +366,11 @@ body {
 .move-labels {
   display: flex;
   flex-direction: column;
+  font-size: 13px;
+  top: -17px;
+  left: 20px;
+  margin-bottom: -10px;
+  position: relative;
 }
 
 .move-label {
@@ -382,6 +387,11 @@ body {
 .move-header {
  
   color: white; /* Or any color you prefer */
+  font-size: 13px;
+  position: relative;
+  top: -15px;
+  left: 55px;
+
 
 }
 
@@ -422,51 +432,122 @@ body {
     height: 400px;
   }
   /* SCALE */
-  .scale-down {
-    position: relative;
-    top: 30px;
-    left: -30px;
-   
+  .scale-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px; /* Reduced bottom margin */
   }
 
+  .scale-item2 {
+   
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px; /* Reduced bottom margin */
+  }
+
+  
   .scale-label {
     color: white;
-    font-size:12px;
+    font-size: 12px;
+    margin-bottom: -11px; /* Reduced space between label and slider */
+    text-align: center;
   }
 
+  .scale-label2 {
+    color: white;
+    font-size: 12px;
+    margin-bottom:24px; /* Reduced space between label and slider */
+    text-align: center;
+    left: 50px;
+    position: relative;
+  }
+  
+  .scale-down {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Made the width smaller for a compact look */
+  }
+  
+  .scale-slider {
+    flex-grow: 1;
+    margin: 0  1px;
+    margin-left: 1px;
+    height: 5px; /* Reduced slider height */
+  }
+
+  .scale-slider2 {
+    flex-grow: 1;
+    margin: 0  1px;
+    margin-left: 18px;
+    width: 111.5px;
+    top: -5px;
+    position: relative;
+    height: 5px; /* Reduced slider height */
+  }
+  
   .scale-button {
     background-color: #0d324b;
     color: white;
     border: none;
     border-radius: 4px;
     padding: 5px;
-    position: relative;
-    top: 20px;
-    left: -20px;
     cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    width: 24px; /* Smaller button size */
+    height: 24px;
+  }
+
+  .scale-button2 {
+    background-color: #0d324b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    width: 24px; /* Smaller button size */
+    height: 24px;
+  }
+  
+  .scale-button23 {
+    background-color: #0d324b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    right: 90px;
+    top: 23px;
+    margin-left: 30px;
+    font-size: 12px; /* Smaller font size */
+    width: 13px; /* Smaller button size */
+    height: 24px;
+  }
+
+  .scale-button24 {
+    background-color: #0d324b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    right: -12px;
+    bottom: 2px;
+
+    font-size: 12px; /* Smaller font size */
+    width: 16px; /* Smaller button size */
+    height: 24px;
   }
   
   .scale-button:hover {
     background-color: #0a2538;
   }
   
-  .fixed-box {
-    margin-top: 200px;
-    margin-bottom: 150px;
-    width: 34%;
-    margin-left: 700px;
-    padding: 20px;
-    position: fixed;
-    top: 5px;
-    bottom: 40px;
-    background-color: blue;
-  }
-
-  .scale-heading {
-    display: none;
-  }
-  
-  /* END SCALE */
+   /*  END  */  
 
   .assets-header {
    display: none;
@@ -548,8 +629,8 @@ body {
   .scaler {
     width: 80%;
     position: relative;
-    top: 5px;
-    left: -10px;
+    top: -25px;
+    left: -2px;
     padding: 2px;
    height: 120px;
     margin: 20px auto; /* Add margin to separate from other components */
@@ -568,17 +649,19 @@ body {
     border-radius: 15px;
     background-color: #333; /* Or any color you prefer */
     padding: 20px;
-    width: 24%;
-    left: 400px;
-    height: 40px;
+    width: 28%;
+    left: 420px;
+    height: 60px;
     background-image: url('/src/assets/AS.png');
     background-size: cover;
     background-position: center;
     margin-top: -20px; /* Adjust the margin-top to move it up */
     position: relative; /* Ensure it's positioned relative to its parent */
-    top: -1200px; /* Adjust the top value to move it up */
-    margin-left: -90px;
-    margin-right: 190px;
+    top: -1275px; /* Adjust the top value to move it up */
+    margin-left: -70px;
+    margin-right: 90px;
+    right: 30px;
+    
   }
 
   .arrow-buttons {

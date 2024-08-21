@@ -205,19 +205,19 @@ const PFPMaker = () => {
                   <button className="scale-button" onClick={() => setProfilePictureValue(prev => Math.min(100, prev + 1))}>+</button>
                 </div>
                 </div>
-                <div className="scale-item">
-                  <label htmlFor="laser-eyes-scale" className="scale-label">Laser Eyes:</label>
-                  <button className="scale-button" onClick={() => setLaserEyesValue(prev => Math.max(0, prev - 1))}>-</button>
+                <div className="scale-item2">
+                  <label htmlFor="laser-eyes-scale" className="scale-label2">Laser Eyes:</label>
+                  <button className="scale-button23" onClick={() => setLaserEyesValue(prev => Math.max(0, prev - 1))}>-</button>
                   <input
                     type="range"
                     id="laser-eyes-scale"
-                    className="scale-slider"
+                    className="scale-slider2"
                     min="0"
                     max="100"
                     value={laserEyesValue}
                     onChange={(e) => setLaserEyesValue(e.target.value)}
                   />
-                  <button className="scale-button" onClick={() => setLaserEyesValue(prev => Math.min(100, prev + 1))}>+</button>
+                  <button className="scale-button24" onClick={() => setLaserEyesValue(prev => Math.min(100, prev + 1))}>+</button>
                 </div>
               </div>
               </div>
