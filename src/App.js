@@ -4,8 +4,8 @@ import { useSpring, animated } from '@react-spring/web';
 import './App.css';
 
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp, MdOutlineArrowLeft, MdOutlineArrowRight } from 'react-icons/md';
-
-
+import { FaDownload } from 'react-icons/fa';
+import { FaSyncAlt } from 'react-icons/fa'
 
 const PFPMaker = () => {
   const [canvas, setCanvas] = useState(null);
@@ -161,10 +161,23 @@ const PFPMaker = () => {
   <div style={fileInputStyle}>
     <input type="file" id="imageUpload" className="file-inpute" />
   </div>
-  
-  <button className="download-button" onClick={downloadCanvas}>
-    Download
-  </button>
+
+    
+     {/* Mobile Download Button */}
+     <div className="download-button-mobile">
+        <button className="download-button" onClick={downloadCanvas}>
+          <FaDownload  /> 
+          <span className="download-text">Download</span> 
+        </button>
+      </div>
+
+      <div className="download-button-mobile2">
+        <button className="download-button2" onClick={downloadCanvas}>
+          <FaSyncAlt  /> 
+          <span className="download-text">Refresh</span> 
+        </button>
+      </div>
+
 
 </div>
           {/* My Assets Section */}

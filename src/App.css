@@ -11,6 +11,7 @@ body {
   background-position: center;
 }
 
+
 /* Styles for PFPMaker */
 .pfpmaker-container {
   display: flex;
@@ -69,6 +70,8 @@ body {
   font-size: 0.9rem;
   margin-right: 20px; /* Space between the file input and download button */
 }
+
+
 
 .download-button {
   width: 100px;
@@ -207,6 +210,60 @@ body {
     padding: 5px;
   }
 
+  .tile {
+    width: 90px;
+    height: 90px;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #0d324b;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    position: relative;
+    left: 380px;
+    top:-523px;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; 
+
+  }
+  
+  .download-button-mobile {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+   
+  .download-button-mobile2 {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  .download-text {
+ /* Space between the button and text */
+    font-size: 14px;
+    color: white;
+    position: relative;
+    text-align: center;
+  }
   .left-container {
     margin-right: 0;
     margin-bottom: 20px;
@@ -263,7 +320,7 @@ body {
   margin-left: 700px;
   padding: 20px;
   position: fixed;
-  top: 5px;
+  top: -55px;
   bottom: 40px;
 }
 
@@ -342,7 +399,7 @@ body {
 
 .tiles-container {
 
-    margin-top: -59px;
+    margin-top: -9px;
 
 
 }
@@ -428,7 +485,7 @@ body {
      width: 200px;
     padding: 30px;
     left: 500px;
-    top: -860px;
+    top: -820px;
     height: 400px;
   }
   /* SCALE */
@@ -583,7 +640,6 @@ body {
   margin-top: 40px;
   margin-left: 42px;
   
-  
 }
 
 
@@ -591,13 +647,15 @@ body {
 
 
   .file-inpute {
-    width: 34%; /* Adjust width for portrait */
+    width: 30%; /* Adjust width for portrait */
     margin: 20px auto; /* Center horizontally and add margin */
     position: relative; /* Use relative positioning instead of fixed */
-    left: 300px; /* Move the elements to the right */
+    left: 270px; /* Move the elements to the right */
     top: -92px;
     right: 90px;
-    margin-left: 50px;  /* */
+    font-size: 11px;
+    
+    margin-left: 20px;  /* */
 }
 
 
@@ -605,11 +663,28 @@ body {
     width: 34%; /* Adjust width for portrait */
     margin: 20px auto; /* Center horizontally and add margin */
     position: relative; /* Use relative positioning instead of fixed */
-    left: 350px; /* Move the elements to the right */
-    top: -175px;
-    height: 43px;
+    left: 320px; /* Move the elements to the right */
+    top: -185px;
+    height: auto;
+    font-size: 10px;
     margin-left: 50px; /* Increase margin to move elements to the right */
 }
+
+.download-button2 {
+  width: 34%; /* Adjust width for portrait */
+  margin: 20px auto; /* Center horizontally and add margin */
+  position: relative; /* Use relative positioning instead of fixed */
+  left: 450px; /* Move the elements to the right */
+  top: -295px;
+  height: 43px;
+  background-image: url('/src/assets/AS.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin-left: 50px; /* Increase margin to move elements to the right */
+}
+
+
   
   
 .flex-container {
@@ -639,15 +714,14 @@ body {
   .tiles-container {
     width: 90%;
     position: relative;
-    left: -4px;
-    top: 50px;
-    margin-bottom: 30px;
+    left: 100px;
+    top: 150px;
+    margin-bottom: 130px;
     margin: 20px auto; /* Add margin to separate from other components */
   }
 
   .move-container {
     border-radius: 15px;
-    background-color: #333; /* Or any color you prefer */
     padding: 20px;
     width: 28%;
     left: 420px;
@@ -657,7 +731,7 @@ body {
     background-position: center;
     margin-top: -20px; /* Adjust the margin-top to move it up */
     position: relative; /* Ensure it's positioned relative to its parent */
-    top: -1275px; /* Adjust the top value to move it up */
+    top: -1245px; /* Adjust the top value to move it up */
     margin-left: -70px;
     margin-right: 90px;
     right: 30px;
@@ -669,8 +743,8 @@ body {
     margin: 20px auto; /* Add margin to separate from other components */
     display: flex;
     position: relative;
-    top: -197px;
-    right: -100px;
+    top: -980px;
+    right: -400px;
     flex-direction: column; /* Arrange arrows vertically */
     align-items: center; /* Center arrows horizontally */
   }
