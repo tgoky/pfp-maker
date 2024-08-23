@@ -150,7 +150,8 @@ const PFPMaker = () => {
 
   return (
     <animated.div style={{ ...containerStyle }} className="pfpmaker-container">
-<h1 class="pfp-maker-header">Aequor Finance PfP Maker</h1>
+
+<img src="/aq.PNG" alt="ri"  width="100px" height="100px" />
 
 
       <div  className="full-width-background">
